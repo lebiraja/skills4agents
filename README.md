@@ -28,15 +28,16 @@ Modules are organized by category under `modules/`:
 ```text
 SKILLS/
   README.md
-  modules/
-    ai/
-      agent-module-aws-bedrock-python.md
-    data/
-      agent-module-django-postgres-db-standard.md
-    platform/
-      agent-module-fullstack-ai-platform-standard.md
-    workflow/
-      agent-module-session-auto-naming.md
+   modules/
+     ai/
+       agent-module-aws-bedrock-python.md
+     data/
+       agent-module-django-postgres-db-standard.md
+       agent-module-input-validation-standard.md
+     platform/
+       agent-module-fullstack-ai-platform-standard.md
+     workflow/
+       agent-module-session-auto-naming.md
 ```
 
 ### Optional Supporting Layout
