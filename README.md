@@ -34,6 +34,8 @@ SKILLS/
     SKILL.md
   agent-module-error-taxonomy-and-handling/
     SKILL.md
+  agent-module-frontend-ui-magic-shadcn/
+    SKILL.md
   agent-module-input-validation-standard/
     SKILL.md
   agent-module-testing-strategy-and-coverage/
