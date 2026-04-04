@@ -1,3 +1,7 @@
+---
+name: agent-module-testing-strategy-and-coverage
+description: "Module: Testing Strategy and Coverage Standard"
+---
 # Module: Testing Strategy and Coverage Standard
 
 ## 1. Module Metadata

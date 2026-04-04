@@ -1,3 +1,7 @@
+---
+name: agent-module-observability-instrumentation
+description: "Module: Observability and Instrumentation Standard"
+---
 # Module: Observability and Instrumentation Standard
 
 ## 1. Module Metadata

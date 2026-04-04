@@ -3,7 +3,7 @@
 ## Purpose
 This repository is a Markdown-first knowledge base for development agents and engineering teams.
 
-Each `.md` document is treated as an executable guidance module, not just documentation. Modules are designed to help agents and developers consistently produce production-ready systems by combining:
+Each skill folder (and its nested `SKILL.md` document) is treated as an executable guidance module, aligned with the agent's internal skill loading format. Modules are designed to help agents and developers consistently produce production-ready systems by combining:
 - Operational instructions
 - Implementation workflows
 - Architecture and decision patterns
@@ -23,24 +23,27 @@ A module should answer the following:
 ## Repository Organization
 
 ### Active Layout
-Modules are organized by category under `modules/`:
+Modules are organized as independent skill folders directly in the root directory (`SKILLS/`). Each module contains a mandatory `SKILL.md` file.
 
 ```text
 SKILLS/
   README.md
-  modules/
-    ai/
-      agent-module-aws-bedrock-python.md
-    data/
-      agent-module-django-postgres-db-standard.md
-      agent-module-error-taxonomy-and-handling.md
-      agent-module-input-validation-standard.md
-      agent-module-testing-strategy-and-coverage.md
-    platform/
-      agent-module-fullstack-ai-platform-standard.md
-      agent-module-observability-instrumentation.md
-    workflow/
-      agent-module-session-auto-naming.md
+  agent-module-aws-bedrock-python/
+    SKILL.md
+  agent-module-django-postgres-db-standard/
+    SKILL.md
+  agent-module-error-taxonomy-and-handling/
+    SKILL.md
+  agent-module-input-validation-standard/
+    SKILL.md
+  agent-module-testing-strategy-and-coverage/
+    SKILL.md
+  agent-module-fullstack-ai-platform-standard/
+    SKILL.md
+  agent-module-observability-instrumentation/
+    SKILL.md
+  agent-module-session-auto-naming/
+    SKILL.md
 ```
 
 ### Optional Supporting Layout
@@ -54,15 +57,9 @@ SKILLS/
     naming-conventions.md
     quality-checklist.md
   archive/
-    <deprecated-modules>.md
+    <deprecated-modules>/
+      SKILL.md
 ```
-
-### Category Rules
-Use these category folders for separation of concerns:
-- `modules/ai/`: LLMs, embeddings, RAG, model orchestration, prompt systems
-- `modules/data/`: databases, schema standards, ingestion, migrations, analytics pipelines
-- `modules/platform/`: full-stack architecture, infra, deployment, security, observability
-- `modules/workflow/`: process orchestration, automation patterns, lifecycle modules
 
 ## Document Types
 This repository supports these module types:
@@ -74,27 +71,28 @@ This repository supports these module types:
 Default policy: create hybrid modules unless there is a strong reason to isolate scope.
 
 ## Naming Conventions
-All module files must follow this pattern:
+All module folders must follow this pattern:
 
 ```text
-agent-module-<domain>-<use-case>.md
+agent-module-<domain>-<use-case>
 ```
 
 Naming rules:
-- Use lowercase only
+- Use lowercase only for the folder name
 - Use hyphen-separated words
 - Keep names explicit and use-case-first
 - Avoid vague suffixes like `guide`, `notes`, `v2`, `misc`
-- Keep length readable while preserving specificity
+- The instructional file inside the folder **MUST** be named exactly `SKILL.md`.
 
 Examples:
-- `agent-module-aws-bedrock-python.md`
-- `agent-module-django-postgres-db-standard.md`
-- `agent-module-session-auto-naming.md`
+- `agent-module-aws-bedrock-python/SKILL.md`
+- `agent-module-django-postgres-db-standard/SKILL.md`
+- `agent-module-session-auto-naming/SKILL.md`
 
 ## Required Module Structure
-Every new module must include all required sections in this order.
+Every new module must include all required sections in this order, starting with YAML frontmatter to allow seamless parsing by agent systems:
 
+0. YAML Frontmatter (`name` and `description`)
 1. Module Metadata
 2. Mission and Applicability
 3. Architecture Pattern
@@ -110,6 +108,7 @@ Every new module must include all required sections in this order.
 
 ### Formatting Standards
 - Use GitHub-flavored Markdown
+- Include required YAML frontmatter at the very top of `SKILL.md`
 - Use clear heading hierarchy (`#`, `##`, `###`)
 - Use short paragraphs and explicit bullet points
 - Use numbered steps for workflows
@@ -133,6 +132,7 @@ Each module must be:
 
 ## Required Level of Detail
 A module is incomplete if it lacks any of these:
+- Correctly formatted YAML frontmatter
 - Implementation phases with exit criteria
 - Decision matrix with selection rules
 - Test/validation guidance for both happy path and failure path
@@ -143,6 +143,10 @@ A module is incomplete if it lacks any of these:
 Use this template when adding a new module.
 
 ```md
+---
+name: agent-module-<domain>-<use-case>
+description: "Module: <Title>"
+---
 # Module: <Title>
 
 ## 1. Module Metadata
@@ -221,15 +225,15 @@ Adapt only:
 
 ## Contribution Workflow
 
-### Step 1: Choose Category and Scope
-- Select the correct category folder based on module purpose.
+### Step 1: Choose Scope
 - Confirm no existing module already covers the same use case.
 
-### Step 2: Create File Using Naming Convention
-- Create file using `agent-module-<domain>-<use-case>.md`.
-- Place it in the appropriate directory (`modules/ai`, `modules/data`, etc.).
+### Step 2: Create Folder and File Using Naming Convention
+- Create a directory following the format: `agent-module-<domain>-<use-case>`.
+- Inside the directory, create a file named exactly `SKILL.md`.
 
 ### Step 3: Populate Mandatory Template
+- Include the YAML frontmatter.
 - Fill all required sections in order.
 - Ensure decision matrix and benchmarks are concrete and measurable.
 
@@ -242,24 +246,21 @@ Adapt only:
 ### Step 5: Submit Changes
 - Include a concise summary of:
   - Module purpose
-  - Intended category
   - Key benchmarks introduced
   - Any breaking changes to conventions
 
 ## Repository Cleanliness Rules
 - Do not place ad-hoc notes in module directories.
-- Do not duplicate module scope across multiple files.
+- Do not duplicate module scope across multiple folders.
 - Keep one primary use case per module.
-- Move deprecated modules to a dedicated archive folder when introduced.
+- Move deprecated modules to a dedicated `archive/` folder when introduced.
 - Update this `README.md` when structure or standards change.
 
 ## Quality Bar for Acceptance
 A new module is accepted only if:
-- File naming and placement are correct
+- Directory naming and `SKILL.md` placement are correct
+- YAML Frontmatter is present and properly formatted
 - Mandatory template sections are complete
 - Guidance is reusable and implementation-ready
 - Benchmarks are measurable and realistic
 - Validation strategy is sufficient for production confidence
-
-## Recommended Next Step
-Create `templates/module-template.md` and copy the mandatory template from this README so contributors can scaffold modules quickly and consistently.

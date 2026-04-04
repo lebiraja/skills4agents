@@ -1,3 +1,7 @@
+---
+name: agent-module-fullstack-ai-platform-standard
+description: "Module: Production-Grade AI Platform Delivery Standard"
+---
 # Module: Production-Grade AI Platform Delivery Standard
 
 ## 1. Module Metadata

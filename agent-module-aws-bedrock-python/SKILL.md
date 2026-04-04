@@ -1,3 +1,7 @@
+---
+name: agent-module-aws-bedrock-python
+description: "Module: AWS Bedrock Integration Standard (Python)"
+---
 # Module: AWS Bedrock Integration Standard (Python)
 
 ## 1. Module Metadata

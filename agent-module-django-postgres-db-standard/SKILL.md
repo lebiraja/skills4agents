@@ -1,3 +1,7 @@
+---
+name: agent-module-django-postgres-db-standard
+description: "Module: Relational Database Creation Standard (Django + PostgreSQL)"
+---
 # Module: Relational Database Creation Standard (Django + PostgreSQL)
 
 ## 1. Module Metadata
