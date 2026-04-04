@@ -33,9 +33,12 @@ SKILLS/
       agent-module-aws-bedrock-python.md
     data/
       agent-module-django-postgres-db-standard.md
+      agent-module-error-taxonomy-and-handling.md
       agent-module-input-validation-standard.md
+      agent-module-testing-strategy-and-coverage.md
     platform/
       agent-module-fullstack-ai-platform-standard.md
+      agent-module-observability-instrumentation.md
     workflow/
       agent-module-session-auto-naming.md
 ```
