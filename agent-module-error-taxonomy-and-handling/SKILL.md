@@ -1,3 +1,7 @@
+---
+name: agent-module-error-taxonomy-and-handling
+description: "Module: Error Taxonomy and Unified Handling Standard"
+---
 # Module: Error Taxonomy and Unified Handling Standard
 
 ## 1. Module Metadata

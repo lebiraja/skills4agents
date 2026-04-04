@@ -1,3 +1,7 @@
+---
+name: agent-module-input-validation-standard
+description: "Module: Strict Input Validation Standard (Frontend/User Input -> Database)"
+---
 # Module: Strict Input Validation Standard (Frontend/User Input -> Database)
 
 ## 1. Module Metadata

@@ -1,3 +1,7 @@
+---
+name: agent-module-session-auto-naming
+description: "Module: Auto Session Naming Lifecycle"
+---
 # Module: Auto Session Naming Lifecycle
 
 ## 1. Module Metadata
