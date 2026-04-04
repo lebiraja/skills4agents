@@ -264,3 +264,61 @@ A new module is accepted only if:
 - Guidance is reusable and implementation-ready
 - Benchmarks are measurable and realistic
 - Validation strategy is sufficient for production confidence
+
+## Agent Configuration Guide
+To fully leverage these standardized guidance modules, you can integrate this repository into various AI coding assistants and autonomous agents. The flat folder structure with `SKILL.md` files containing YAML metadata is inherently compatible with modern agent loading pipelines.
+
+### 1. Antigravity
+Antigravity automatically parses and internalizes skills placed in its central configuration path.
+
+**Configuration Command:**
+Symlink your local `SKILLS` folder modules directly into the Antigravity system registry:
+```bash
+ln -sf /absolute/path/to/SKILLS/agent-module-* ~/.gemini/antigravity/skills/
+```
+
+### 2. VS Code (GitHub Copilot / Cursor)
+For VS Code environments utilizing GitHub Copilot Chat or Cursor, establish project-wide custom instructions that dictate where it should reference these modules.
+
+**Configuration:**
+1. Create a `.github` folder in the root of your project workspace.
+2. Inside `.github`, create a file named `copilot-instructions.md`.
+3. Add the following reference directive to instruct Copilot on where to find your skills:
+```markdown
+# Agent Directives
+ALWAYS reference the local skills library for architecture guidelines and technical workflows. 
+The library of executable agent modules is located at: `/absolute/path/to/SKILLS/`
+When tackling a particular domain or tool (like Django, AWS, or testing), first analyze the requested target's `SKILL.md` inside that directory.
+```
+*Cursor Note:* You can achieve identical configuration in Cursor by adding that same directive text inside a `.cursorrules` file at the root of your repository.
+
+### 3. Claude Code (CLI)
+Claude Code explicitly supports customized skill definitions stored locally. It will parse the directory exactly as formatted here using `SKILL.md` files with YAML metadata.
+
+**Configuration Command:**
+To make these skills globally accessible across all your projects navigated by Claude Code, symlink the folders into its global skills registry:
+```bash
+mkdir -p ~/.claude/skills
+ln -sf /absolute/path/to/SKILLS/agent-module-* ~/.claude/skills/
+```
+*Project-specific Note:* Create a `.claude/skills/` folder at your target project's root and symlink them there if you want them isolated from other projects.
+
+### 4. GitHub Copilot (CLI)
+The GitHub Copilot CLI allows you to expose custom instructional contextual directories using system environment variables, allowing the CLI to digest your standardized modules behind the scenes.
+
+**Configuration Command:**
+Export the target custom instruction directory path in your shell profile (e.g., `~/.bashrc` or `~/.zshrc`):
+```bash
+export COPILOT_CUSTOM_INSTRUCTIONS_DIRS="/absolute/path/to/SKILLS"
+```
+
+### 5. Codex / Custom Open Source CLIs
+Most standard customizable OpenAI-driven or generic CLI agents load instructions via specific configuration variables or embedded `.prompt` / `.instructions` files.
+
+**Configuration:**
+Either point the agent's context window explicitly towards the knowledge base during initialization, or append this instructional block to your system-level prompt overrides:
+```text
+System Context Override:
+Your behavioral guidelines, architectural patterns, and execution workflows are formally defined in the knowledge base located at: `/absolute/path/to/SKILLS/`. 
+Before generating any implementation, search and read the relevant `SKILL.md` corresponding to the active stack.
+```
