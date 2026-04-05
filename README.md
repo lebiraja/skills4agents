@@ -46,6 +46,8 @@ SKILLS/
     SKILL.md
   agent-module-session-auto-naming/
     SKILL.md
+  agent-module-rag-system-standard/
+    SKILL.md
 ```
 
 ### Optional Supporting Layout
