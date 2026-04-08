@@ -28,6 +28,8 @@ Modules are organized as independent skill folders directly in the root director
 ```text
 SKILLS/
   README.md
+  agent-module-project-planning-and-scoping/
+    SKILL.md
   agent-module-aws-bedrock-python/
     SKILL.md
   agent-module-django-postgres-db-standard/
