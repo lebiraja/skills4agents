@@ -50,6 +50,8 @@ SKILLS/
     SKILL.md
   agent-module-rag-system-standard/
     SKILL.md
+  agent-module-docker-ml-deployment/
+    SKILL.md
 ```
 
 ### Optional Supporting Layout
